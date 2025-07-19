@@ -185,12 +185,6 @@ app.use(globalErrorHandler);
 // Connect to database immediately
 connectDB();
 
-// Initialize serverless real-time service for Vercel
-import realtimeService from './services/serverless-realtime.service.js';
-
-// Initialize real-time service
-realtimeService.initialize().catch(console.error);
-
 // For Vercel deployment, export the app
 export default app;
 

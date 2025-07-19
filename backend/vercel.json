@@ -3,22 +3,17 @@
   "name": "jharufy-backend",
   "builds": [
     {
-      "src": "src/server.js",
+      "src": "../api/index.js",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["src/**", "uploads/**"],
         "maxLambdaSize": "50mb"
       }
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/src/server.js"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/src/server.js"
+      "dest": "/api/index.js"
     }
   ],
   "env": {
