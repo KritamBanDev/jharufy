@@ -6,8 +6,16 @@ const app = express();
 
 // Basic middleware
 app.use(cors({
-  origin: '*',
-  credentials: true
+  origin: [
+    'https://jharufy-frontend.vercel.app',
+    'https://*.vercel.app',
+    'http://localhost:5173',
+    'http://localhost:5174',
+    'http://localhost:5175'
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Cookie']
 }));
 app.use(express.json());
 
@@ -27,11 +35,28 @@ app.get('/api/test', (req, res) => {
   });
 });
 
-// Simple auth endpoint
-app.post('/api/auth/test', (req, res) => {
+// Auth endpoints
+app.post('/api/auth/signup', (req, res) => {
   res.json({ 
-    message: 'Auth endpoint working!',
+    success: true,
+    message: 'Signup endpoint working - connect database for full functionality',
     data: req.body
+  });
+});
+
+app.post('/api/auth/login', (req, res) => {
+  res.json({ 
+    success: true,
+    message: 'Login endpoint working - connect database for full functionality',
+    data: req.body
+  });
+});
+
+app.get('/api/auth/me', (req, res) => {
+  res.json({ 
+    success: true,
+    message: 'Auth check endpoint working',
+    user: null
   });
 });
 
@@ -42,9 +67,13 @@ async function connectDB() {
   if (isConnected) return;
   
   try {
-    await mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/test');
-    isConnected = true;
-    console.log('Database connected');
+    if (process.env.MONGO_URI) {
+      await mongoose.connect(process.env.MONGO_URI);
+      isConnected = true;
+      console.log('Database connected');
+    } else {
+      console.log('No MONGO_URI provided - running without database');
+    }
   } catch (error) {
     console.error('Database connection failed:', error);
   }
