@@ -1,0 +1,41 @@
+{
+  "name": "jharufy",
+  "version": "1.0.0",
+  "description": "Language learning social media platform",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:socket": "cd socket-server && npm run dev",
+    "dev:full": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\" \"npm run dev:socket\"",
+    "build": "node scripts/build.js",
+    "build:frontend": "cd frontend && npm run build",
+    "start": "cd backend && npm start",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install && cd ../socket-server && npm install",
+    "clean": "npm run clean:backend && npm run clean:frontend",
+    "clean:backend": "cd backend && npm run clean",
+    "clean:frontend": "cd frontend && rimraf node_modules package-lock.json && npm install",
+    "lint": "npm run lint:backend && npm run lint:frontend",
+    "lint:backend": "cd backend && npm run lint",
+    "lint:frontend": "cd frontend && npm run lint",
+    "test": "npm run test:backend && npm run test:frontend",
+    "test:backend": "cd backend && npm test",
+    "test:frontend": "cd frontend && npm test"
+  },
+  "workspaces": [
+    "frontend",
+    "backend",
+    "socket-server"
+  ],
+  "keywords": ["social media", "language learning", "chat", "react", "node.js"],
+  "author": "Jharufy Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "rimraf": "^5.0.5"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}

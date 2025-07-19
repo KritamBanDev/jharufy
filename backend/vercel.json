@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "name": "jharufy-backend",
+  "builds": [
+    {
+      "src": "src/server.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["src/**", "uploads/**"]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/src/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/src/server.js"
+    }
+  ],
+  "functions": {
+    "src/server.js": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "regions": ["iad1"]
+}

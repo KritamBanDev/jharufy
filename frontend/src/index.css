@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom navbar hover states */
+@layer components {
+  .navbar-btn {
+    @apply transition-colors duration-200 ease-in-out;
+  }
+  
+  .navbar-btn:hover {
+    @apply bg-base-300/50;
+  }
+  
+  .navbar-btn.active {
+    @apply bg-primary/20;
+  }
+  
+  .navbar-btn.active:hover {
+    @apply bg-primary/30;
+  }
+  
+  .navbar-icon {
+    @apply transition-transform duration-200 ease-in-out;
+  }
+  
+  .navbar-icon:hover {
+    @apply scale-105;
+  }
+  
+  /* Override DaisyUI button hover conflicts */
+  .btn-ghost.navbar-btn:hover {
+    @apply bg-base-300/50 text-base-content;
+  }
+  
+  .btn-ghost.navbar-btn.logout-btn:hover {
+    @apply bg-error/20 text-error;
+  }
+}
+
+/* Enhanced flag emoji rendering */
+.flag-emoji {
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", "Twemoji Mozilla", "Android Emoji", "EmojiSymbols", sans-serif;
+  font-variant-emoji: emoji;
+  text-rendering: optimizeQuality;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Force color emoji display on Windows */
+@supports (font-variant-emoji: emoji) {
+  .flag-emoji {
+    font-variant-emoji: emoji;
+  }
+}
+
+/* Fallback for better emoji support */
+.flag-emoji::before {
+  content: "";
+  width: 0;
+  height: 0;
+  display: inline-block;
+}
+
+.str-chat__channel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #c9e8c9, #b7e7bb);
+  height: 100%;
+}
+
+.str-chat__container {
+  max-width: 1200px;
+  width: 100%;
+  height: 80% !important;
+  margin: 0 auto !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.str-chat__list {
+  background-color: #ffffff;
+  padding: 12px;
+}
+
+.str-chat__list-notifications {
+  display: none;
+}
+
+.str-chat__message-input {
+  border-top: 1px solid #ddd;
+}
