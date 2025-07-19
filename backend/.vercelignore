@@ -1,29 +1,11 @@
-# Development files
-.husky
-.eslintrc.js
-.eslintignore
-.prettierrc
-.gitignore
-README.md
-
-# Test files
+src/
 test/
+logs/
+.env*
+.git*
+.husky/
+node_modules/
+*.log
 *.test.js
 jest.config.json
-
-# Logs
-logs/
-*.log
-
-# Environment files (use Vercel env vars)
-.env*
-
-# Dependencies (installed by Vercel)
-node_modules/
-
-# Build artifacts
-dist/
-build/
-
-# Local development
-src/server.js
+README.md
