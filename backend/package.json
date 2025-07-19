@@ -13,8 +13,7 @@
     "lint": "eslint . --ext .js",
     "lint:fix": "eslint . --ext .js --fix",
     "format": "prettier --write \"src/**/*.js\"",
-    "clean": "rimraf node_modules package-lock.json && npm install",
-    "prepare": "husky install"
+    "clean": "rimraf node_modules package-lock.json && npm install"
   },
   "keywords": [],
   "author": "",
