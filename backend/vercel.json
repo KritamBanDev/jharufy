@@ -6,7 +6,8 @@
       "src": "src/server.js",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["src/**", "uploads/**"]
+        "includeFiles": ["src/**", "uploads/**"],
+        "maxLambdaSize": "50mb"
       }
     }
   ],
@@ -20,11 +21,6 @@
       "dest": "/src/server.js"
     }
   ],
-  "functions": {
-    "src/server.js": {
-      "maxDuration": 30
-    }
-  },
   "env": {
     "NODE_ENV": "production"
   },
