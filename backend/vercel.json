@@ -1,19 +1,15 @@
 {
   "version": 2,
   "name": "jharufy-backend",
-  "builds": [
-    {
-      "src": "src/server.js",
-      "use": "@vercel/node",
-      "config": {
-        "maxLambdaSize": "50mb"
-      }
+  "functions": {
+    "api/index.js": {
+      "maxDuration": 30
     }
-  ],
+  },
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/src/server.js"
+      "dest": "/api/index.js"
     }
   ],
   "env": {

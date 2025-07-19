@@ -16,10 +16,7 @@ logs/
 *.log
 
 # Environment files (use Vercel env vars)
-.env
-.env.local
-.env.development
-.env.production
+.env*
 
 # Dependencies (installed by Vercel)
 node_modules/
@@ -27,3 +24,6 @@ node_modules/
 # Build artifacts
 dist/
 build/
+
+# Local development
+src/server.js

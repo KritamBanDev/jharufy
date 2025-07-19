@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon src/server.js",
     "start": "cross-env NODE_ENV=production node src/server.js",
-    "build": "echo 'No build step required'",
-    "vercel": "cross-env NODE_ENV=production node src/server.js",
+    "build": "echo 'Serverless build - no build step required'",
+    "vercel-build": "echo 'Vercel build complete'",
     "test": "jest --detectOpenHandles",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
