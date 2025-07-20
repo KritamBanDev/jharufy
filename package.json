@@ -22,12 +22,13 @@
     "test:backend": "cd backend && npm test",
     "test:frontend": "cd frontend && npm test"
   },
-  "workspaces": [
-    "frontend",
-    "backend",
-    "socket-server"
+  "keywords": [
+    "social media",
+    "language learning",
+    "chat",
+    "react",
+    "node.js"
   ],
-  "keywords": ["social media", "language learning", "chat", "react", "node.js"],
   "author": "Jharufy Team",
   "license": "MIT",
   "devDependencies": {
@@ -37,5 +38,8 @@
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=8.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5"
   }
 }
